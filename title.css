@@ -1,0 +1,16 @@
+body {
+    color: rgb(49, 73, 72);
+    background-color: rgb(180, 204, 200);
+}
+
+#title {
+    font-size: 64px;
+    font-family: 'Homemade Apple', cursive;
+    text-align: center;
+    margin: 10%;
+}
+
+a {
+    font-size: 32px; 
+    color: rgb(49, 73, 72);
+}
