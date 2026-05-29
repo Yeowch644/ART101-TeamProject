@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Project</title>
+    <link href="title.css" rel="stylesheet" type="text/css">
+    
+    <!-- Javascript and JQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="title.js" defer></script>
+    
+
+    <!-- Imports any fonts from Google Fonts -->
+    <!-- Works in the css file too -->
+    <style>@import url('https://fonts.googleapis.com/css2?family=Homemade+Apple&family=Rock+Salt&display=swap');</style>
+</head>
+<body>
+    <div id="title">Hitchhiker</div>
+    
+    <div style="width: 50%; text-align: center;">
+        <a href="driving.html">Start the engine...</a>
+    </div>
+</body>
+</html>
