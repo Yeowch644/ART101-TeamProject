@@ -1,9 +1,9 @@
 let seconds = 0;
 
-// Runs every 1 second (1000ms)
+// Main timer in seconds
+// This setInterval repeatedly runs every second
 const myTimer = setInterval(() => {
-    seconds++;
-    console.log(`Timer: ${seconds} seconds`);
+    seconds + 1;
 
     // Stop the timer after 10 seconds
     if (seconds === 10) {
