@@ -1,0 +1,85 @@
+<div id="game">
+    <div id="stress">Stress: 0</div>
+
+    <div id="dialogue-box">
+        <p id="dialogue">
+            "Hey man, I need a ride. Do ya think you can help me out?"
+        </p>
+
+        <div id="choices">
+            <button onclick="pickUp()">Pick Him Up</button>
+            <button onclick="driveAway()">Drive Away</button>
+        </div>
+
+        <button id="nextBtn" onclick="nextLine()" style="display:none;">
+            Next
+        </button>
+    </div>
+</div>
+
+<script>
+    
+let stress = 0;
+let currentLine = 0;
+
+const story = [
+    { speaker: "Hitchhiker", text: "Thanks for the ride." },
+    { speaker: "You", text: "No problem.", stress: 10 },
+
+    { speaker: "Hitchhiker", text: "I know it's not easy to let some stranger in your car." },
+    { speaker: "You", text: "Like I said, it's no problem." },
+
+    { speaker: "Hitchhiker", text: "Having no problems can turn into a problem.", stress: 20 },
+
+    { speaker: "You", text: "Where are you headed?" },
+    { speaker: "Hitchhiker", text: "Just a couple blocks down the road." },
+
+    { speaker: "You", text: "Well, here we are! Have a good night!" },
+
+    { speaker: "Hitchhiker", text: "I'm not leaving the car!", stress: 30 },
+
+    { speaker: "You", text: "Yes you are!" },
+
+    { speaker: "Hitchhiker", text: "It's my car now! Get out!", gameOver: true }
+];
+
+function updateStress(amount) {
+    stress += amount;
+    document.getElementById("stress").textContent = `Stress: ${stress}`;
+}
+
+function pickUp() {
+    document.getElementById("choices").style.display = "none";
+    document.getElementById("nextBtn").style.display = "inline-block";
+    nextLine();
+}
+
+function driveAway() {
+    document.getElementById("dialogue").textContent =
+        "You speed away into the darkness, leaving the hitchhiker behind...";
+    document.getElementById("choices").style.display = "none";
+}
+
+function nextLine() {
+    if (currentLine >= story.length) return;
+
+    const line = story[currentLine];
+
+    document.getElementById("dialogue").textContent =
+        `${line.speaker}: ${line.text}`;
+
+    if (line.stress) {
+        updateStress(line.stress);
+    }
+
+    if (line.gameOver) {
+        setTimeout(() => {
+            document.getElementById("dialogue").innerHTML =
+                "<strong>GAME OVER</strong><br>Stress has reached critical levels.";
+            document.getElementById("nextBtn").style.display = "none";
+        }, 1500);
+    }
+
+    currentLine++;
+}
+</script>
