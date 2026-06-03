@@ -1,0 +1,77 @@
+body {
+    Margin: 0;
+    padding: 0;
+    background-image: url("background.png");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: white;
+    font-family: Georgia, serif;
+    text-align: center
+}
+
+.dark-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.72);
+    z-index: 0;
+}
+
+.title-page {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    padding: 50px 25px
+}
+
+h1 {
+    font-size: 70px;
+    letter-spacing: 5px;
+    color: white;
+    text-shadow: 0 0 12px red;
+    margin-bottom: 10px;
+}
+
+h2{ 
+    font-size: 28px;
+    font-weight: normal;
+    margin-bottom: 25px;
+}
+
+.monster {
+    width: 420px;
+    max-width: 90%;
+    filter: contrast(130%) grayscale(100%)
+    margin 20px auto;
+    display: block;
+}
+
+p {
+    max-width: 750px;
+    margin: 20px auto;
+    font-size: 23px;
+    line-height: 1.6;
+}
+
+.warning {
+    color: #ffdddd;
+    text-shadow: 0 0 8px red;
+}
+
+button {
+    margin-top: 25px;
+    padding: 18px 45px;
+    font-size: 24px;
+    font-family: Georgia, 'Times New Roman', Times, serif
+    color white;
+    background-color: black;
+    border: 2px solid white;
+    box-shadow: 0 0 12px red;
+
+}
+
+button:hover {
+    background-color: darkred;
+    transform: scale(1.05);
+
+}
