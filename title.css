@@ -1,6 +1,18 @@
+
+/* THIS IS THE CSS FOR INDEX.HTML, THE STARTING SCREEN */
+
 body {
-    color: rgb(49, 73, 72);
+    color: rgb(214, 88, 38);
     background-color: rgb(180, 204, 200);
+    background-image: url(images/titleMonsterBackground.jpg);
+    
+    /* Repeated layering to increase the shadow's strength */
+    text-shadow: 
+        0 0 15px rgb(226, 255, 245), 
+        0 0 15px rgb(226, 255, 245),
+        0 0 15px rgb(226, 255, 245),
+        0 0 15px rgb(226, 255, 245),
+        0 0 15px rgb(226, 255, 245);
 }
 
 #title {
@@ -12,5 +24,17 @@ body {
 
 a {
     font-size: 32px; 
-    color: rgb(49, 73, 72);
+    color: rgb(214, 88, 38);
+    
+    /* Repeated layering to increase the shadow's strength */
+    text-shadow: 
+        0 0 15px rgb(226, 255, 245), 
+        0 0 15px rgb(226, 255, 245),
+        0 0 15px rgb(226, 255, 245),
+        0 0 15px rgb(226, 255, 245),
+        0 0 15px rgb(226, 255, 245),
+        0 0 15px rgb(226, 255, 245),
+        0 0 15px rgb(226, 255, 245),
+        0 0 15px rgb(226, 255, 245),
+        0 0 15px rgb(226, 255, 245);
 }
