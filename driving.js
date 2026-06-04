@@ -5,6 +5,9 @@ let stickPrompt = false;
 let leftPrompt = true;
 let rightPrompt = false;
 let glovePrompt = false;
+let stress = 0;
+let timeLeft = 120;
+
 
 function continueEvents(event){
     events = events + 1;
@@ -29,25 +32,20 @@ function continueEvents(event){
 
 // Main timer in seconds
 // This setInterval repeatedly runs every second
-const myTimer = setInterval(() => {
-    seconds ++;
+// const myTimer = setInterval(() => {
+//     seconds + 1;
 
     // Stop the timer after 10 seconds
-    if (seconds === 10) {
-        clearInterval(myTimer);
-        console.log("Timer stopped.");
-    }
-}, 1000);
-
-let timeLeft = 30;
-
-const timerDisplay = document.getElementById("timer");
+//     if (seconds === 10) {
+//         clearInterval(myTimer);
+//         console.log("Timer stopped.");
+//     }
+// }, 1000);
 
 const countdown = setInterval(() => {
-    timeLeft--;
-// ADD THIS LINE RIGHT HERE:
-    console.log("Current time left is:", timeLeft);
-    timerDisplay.textContent = `Time: ${timeLeft}`;
+    timeLeft = timeLeft - 1;
+
+    $("#timer").html(`Time: ${timeLeft}`);
 
     if (timeLeft <= 0) {
         clearInterval(countdown);
@@ -57,19 +55,18 @@ const countdown = setInterval(() => {
         // You could redirect to your game over page:
         // window.location.href = "gameover.html";
     }
-}, 1000);
 
-let stress = 0;
-
-const stressInterval = setInterval(() => {
     if (stress < 100) {
-        stress += 5;
-        document.getElementById("stressFill").style.width = stress + "%";
-    } else {
-        clearInterval(stressInterval);
+        stress = stress + 5;
+        $("#stressFill").css("width", `${stress}%`);
+        // document.getElementById("stressFill").style.width = stress + "%";
+    } 
+    if (stress == 100) {
+        clearInterval(countdown);
         alert("You are too stressed!");
     }
 }, 1000);
+
 
 $("#steeringWheel").click(function() {
     if (steeringPrompt == true) {
