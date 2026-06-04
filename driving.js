@@ -30,7 +30,7 @@ function continueEvents(event){
 // Main timer in seconds
 // This setInterval repeatedly runs every second
 const myTimer = setInterval(() => {
-    seconds + 1;
+    seconds ++;
 
     // Stop the timer after 10 seconds
     if (seconds === 10) {
@@ -45,8 +45,9 @@ const timerDisplay = document.getElementById("timer");
 
 const countdown = setInterval(() => {
     timeLeft--;
-
-    timerDisplay.textContent = `Time: ${timeLeft}`;
+// ADD THIS LINE RIGHT HERE:
+    console.log("Current time left variable is:", timeLeft);
+   timerDisplay.textContent = `Time: ${timeLeft}`;
 
     if (timeLeft <= 0) {
         clearInterval(countdown);
@@ -60,14 +61,16 @@ const countdown = setInterval(() => {
 
 let stress = 0;
 
-setInterval(() => {
+const stressInterval = setInterval(() => {
     if (stress < 100) {
         stress += 5;
         document.getElementById("stressFill").style.width = stress + "%";
     } else {
-      alert("You are too stressed!");
+        clearInterval(stressInterval);
+        alert("You are too stressed!");
     }
 }, 1000);
+
 $("#steeringWheel").click(function() {
     if (steeringPrompt == true) {
         continueEvents(this);
