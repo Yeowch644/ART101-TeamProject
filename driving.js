@@ -5,6 +5,9 @@ let stickPrompt = false;
 let leftPrompt = true;
 let rightPrompt = false;
 let glovePrompt = false;
+let stress = 0;
+let timeLeft = 120;
+
 
 function continueEvents(event){
     events = events + 1;
@@ -29,13 +32,44 @@ function continueEvents(event){
 
 // Main timer in seconds
 // This setInterval repeatedly runs every second
-const myTimer = setInterval(() => {
-    seconds + 1;
+// const myTimer = setInterval(() => {
+//     seconds + 1;
 
     // Stop the timer after 10 seconds
+<<<<<<< Updated upstream
     if (seconds === 10) {
         clearInterval(myTimer);
         console.log("Timer stopped.");
+=======
+//     if (seconds === 10) {
+//         clearInterval(myTimer);
+//         console.log("Timer stopped.");
+//     }
+// }, 1000);
+
+const countdown = setInterval(() => {
+    timeLeft = timeLeft - 1;
+
+    $("#timer").html(`Time: ${timeLeft}`);
+
+    if (timeLeft <= 0) {
+        clearInterval(countdown);
+
+        alert("Game Over!");
+
+        // You could redirect to your game over page:
+        // window.location.href = "gameover.html";
+    }
+
+    if (stress < 100) {
+        stress = stress + 5;
+        $("#stressFill").css("width", '${stress}%');
+        // document.getElementById("stressFill").style.width = stress + "%";
+    } 
+    if (stress == 100) {
+        clearInterval(countdown);
+        alert("You are too stressed!");
+>>>>>>> Stashed changes
     }
 }, 1000);
 
