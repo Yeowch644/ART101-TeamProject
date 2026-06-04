@@ -8,13 +8,25 @@
     <!-- Javascript and JQuery -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="driving.js" defer></script>
+    
+<div id="timer">Time: 30</div>
+<div id="stressBar">
+    <div id="stressFill"></div>
+</div>
+
+<div id="stressContainer">
+    <div id="stressFill"></div>
+</div>
 
     <!-- Imports any fonts from Google Fonts -->
     <!-- Works in the css file too -->
     <style>@import url('https://fonts.googleapis.com/css2?family=Homemade+Apple&family=Rock+Salt&display=swap');</style>
+
+    <img id="FailScene" src="Fail Scene.png" alt="Car">
+    
 </head>
 <body>
-
+  
     <div id="driving">
         <img src="images/steeringWheel.png" id="steeringWheel" class="clickableAsset">
         <img src="images/stickShift.png" id="stickShift" class="clickableAsset">
@@ -24,8 +36,6 @@
     </div>
 
     <div id="prompt">You find yourself idly driving on the road. <br>Adjust your left mirror.</div>
-<<<<<<< Updated upstream
-=======
 
     <div id="timer"></div>
 
@@ -33,6 +43,8 @@
         <div id="stressFill"></div>
     </div>
 
->>>>>>> Stashed changes
+    <div>
+        <img id="FailScene" src="Fail Scene.png" alt="Car">
+    </div>
 </body>
 </html>

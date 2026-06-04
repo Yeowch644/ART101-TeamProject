@@ -73,6 +73,35 @@ const countdown = setInterval(() => {
     }
 }, 1000);
 
+let timeLeft = 30;
+
+const timerDisplay = document.getElementById("timer");
+
+const countdown = setInterval(() => {
+    timeLeft--;
+
+    timerDisplay.textContent = `Time: ${timeLeft}`;
+
+    if (timeLeft <= 0) {
+        clearInterval(countdown);
+
+        alert("Game Over!");
+
+        // You could redirect to your game over page:
+        // window.location.href = "gameover.html";
+    }
+}, 1000);
+
+let stress = 0;
+
+setInterval(() => {
+    if (stress < 100) {
+        stress += 5;
+        document.getElementById("stressFill").style.width = stress + "%";
+    } else {
+      alert("You are too stressed!");
+    }
+}, 1000);
 $("#steeringWheel").click(function() {
     if (steeringPrompt == true) {
         continueEvents(this);
