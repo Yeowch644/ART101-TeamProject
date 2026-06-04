@@ -36,11 +36,6 @@ function continueEvents(event){
 //     seconds + 1;
 
     // Stop the timer after 10 seconds
-<<<<<<< Updated upstream
-    if (seconds === 10) {
-        clearInterval(myTimer);
-        console.log("Timer stopped.");
-=======
 //     if (seconds === 10) {
 //         clearInterval(myTimer);
 //         console.log("Timer stopped.");
@@ -63,45 +58,16 @@ const countdown = setInterval(() => {
 
     if (stress < 100) {
         stress = stress + 5;
-        $("#stressFill").css("width", '${stress}%');
+        $("#stressFill").css("width", `${stress}%`);
         // document.getElementById("stressFill").style.width = stress + "%";
     } 
     if (stress == 100) {
         clearInterval(countdown);
         alert("You are too stressed!");
->>>>>>> Stashed changes
     }
 }, 1000);
 
-let timeLeft = 30;
 
-const timerDisplay = document.getElementById("timer");
-
-const countdown = setInterval(() => {
-    timeLeft--;
-
-    timerDisplay.textContent = `Time: ${timeLeft}`;
-
-    if (timeLeft <= 0) {
-        clearInterval(countdown);
-
-        alert("Game Over!");
-
-        // You could redirect to your game over page:
-        // window.location.href = "gameover.html";
-    }
-}, 1000);
-
-let stress = 0;
-
-setInterval(() => {
-    if (stress < 100) {
-        stress += 5;
-        document.getElementById("stressFill").style.width = stress + "%";
-    } else {
-      alert("You are too stressed!");
-    }
-}, 1000);
 $("#steeringWheel").click(function() {
     if (steeringPrompt == true) {
         continueEvents(this);
