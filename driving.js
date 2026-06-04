@@ -46,8 +46,8 @@ const timerDisplay = document.getElementById("timer");
 const countdown = setInterval(() => {
     timeLeft--;
 // ADD THIS LINE RIGHT HERE:
-    console.log("Current time left variable is:", timeLeft);
-   timerDisplay.textContent = `Time: ${timeLeft}`;
+    console.log("Current time left is:", timeLeft);
+    timerDisplay.textContent = `Time: ${timeLeft}`;
 
     if (timeLeft <= 0) {
         clearInterval(countdown);
