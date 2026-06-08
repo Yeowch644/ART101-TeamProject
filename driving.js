@@ -201,8 +201,6 @@ const countdown = setInterval(() => {
     }
 }, 1000);
 
-let timeLeft = 30;
-
 $(document).on("click", "#steeringWheel", function() {
     if (steeringPrompt == true) {
         if (scene == 1) {
