@@ -165,19 +165,6 @@ function pickUp() {
     nextLine();
 }
 
-<<<<<<< Updated upstream
-    // Stop the timer after 10 seconds
-<<<<<<< Updated upstream
-    if (seconds === 10) {
-        clearInterval(myTimer);
-        console.log("Timer stopped.");
-=======
-//     if (seconds === 10) {
-//         clearInterval(myTimer);
-//         console.log("Timer stopped.");
-//     }
-// }, 1000);
-=======
 function driveAway() {
     document.getElementById("dialogue").textContent =
         "You speed away into the darkness, leaving the hitchhiker behind... Eventually you get home safely. But that strange sense of dread never really goes away...";
@@ -187,7 +174,6 @@ function driveAway() {
     $("#nextBtn").css("display", "none");
 }
 // END OF CHOICE BUTTONS
->>>>>>> Stashed changes
 
 const countdown = setInterval(() => {
     if (timer == true) {
@@ -197,17 +183,6 @@ const countdown = setInterval(() => {
         $("#timer").html("Keep driving");
     }
 
-<<<<<<< Updated upstream
-    if (stress < 100) {
-        stress = stress + 5;
-        $("#stressFill").css("width", '${stress}%');
-        // document.getElementById("stressFill").style.width = stress + "%";
-    } 
-    if (stress == 100) {
-        clearInterval(countdown);
-        alert("You are too stressed!");
->>>>>>> Stashed changes
-=======
     if (timeLeft <= 0) {
         toggleTimer();
         gameEnd();
@@ -223,44 +198,12 @@ const countdown = setInterval(() => {
         if (stress >= 100) {
             gameEnd();
         }
->>>>>>> Stashed changes
     }
 }, 1000);
 
 let timeLeft = 30;
 
-<<<<<<< Updated upstream
-const timerDisplay = document.getElementById("timer");
-
-const countdown = setInterval(() => {
-    timeLeft--;
-
-    timerDisplay.textContent = `Time: ${timeLeft}`;
-
-    if (timeLeft <= 0) {
-        clearInterval(countdown);
-
-        alert("Game Over!");
-
-        // You could redirect to your game over page:
-        // window.location.href = "gameover.html";
-    }
-}, 1000);
-
-let stress = 0;
-
-setInterval(() => {
-    if (stress < 100) {
-        stress += 5;
-        document.getElementById("stressFill").style.width = stress + "%";
-    } else {
-      alert("You are too stressed!");
-    }
-}, 1000);
-$("#steeringWheel").click(function() {
-=======
 $(document).on("click", "#steeringWheel", function() {
->>>>>>> Stashed changes
     if (steeringPrompt == true) {
         if (scene == 1) {
             continueEvents(this);
