@@ -1,26 +1,36 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>Project</title>
-    <link href="title.css" rel="stylesheet" type="text/css">
-    
-    <!-- Javascript and JQuery -->
+    <meta charset="UTF-8">
+    <title>Hitchhiker</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Special+Elite&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="title.css">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="title.js" defer></script>
-    
-    <p>Welcome to hitchhiking. If you decide to pick up a hiker, watch out! You got to get home! If you get distracted by anything, you might swerve and crash. Proceed with caution. Make sure to keep your stress levels down or you die. The stranger you let in might come out to bite you. Click the button to start. </p> 
-
-
-    <!-- Imports any fonts from Google Fonts -->
-    <!-- Works in the css file too -->
-    <style>@import url('https://fonts.googleapis.com/css2?family=Homemade+Apple&family=Rock+Salt&display=swap');</style>
 </head>
+
 <body>
-    <div id="title">Hitchhiker</div>
-    
-    <div style="width: 50%; text-align: center;">
-        <a href="driving.html">Start the engine...</a>
-    </div>
+    <div class="overlay"></div>
+
+    <main class="title-page">
+        <h1>HITCHHIKER</h1>
+        <h2>A Horror Game</h2>
+
+        <img src="images/monster.png" alt="monster drawing" class="monster">
+
+        <p class="intro">
+            You are driving home late at night. The road is empty, your stress is rising,
+            and something strange is waiting in the dark...
+        </p>
+
+        <p class="warning">
+            Keep your stress low. Watch the road. Be careful who you let into your car.
+        </p>
+
+        <button onclick="startGame()">START DRIVING</button>
+    </main>
+
+    <script src="ella-title.js"></script>
 </body>
 </html>

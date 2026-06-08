@@ -9,21 +9,9 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="driving.js" defer></script>
     
-<div id="timer">Time: 30</div>
-<div id="stressBar">
-    <div id="stressFill"></div>
-</div>
-
-<div id="stressContainer">
-    <div id="stressFill"></div>
-</div>
-
     <!-- Imports any fonts from Google Fonts -->
     <!-- Works in the css file too -->
     <style>@import url('https://fonts.googleapis.com/css2?family=Homemade+Apple&family=Rock+Salt&display=swap');</style>
-
-    <img id="FailScene" src="Fail Scene.png" alt="Car">
-    
 </head>
 <body>
   
@@ -35,16 +23,29 @@
         <img src="images/gloveBox.png" id="gloveBox" class="clickableAsset">
     </div>
 
-    <div id="prompt">You find yourself idly driving on the road. <br>Adjust your left mirror.</div>
+    <div id="prompt">You find yourself idly driving on the road, but a strange sense of dread rises. <br>Adjust your left mirror.</div>
+
+    <div id="dialogue-box">
+        <p id="dialogue">
+            Hitckhiker: "Hey man, I need a ride. Do ya think you can help me out?"
+        </p>
+
+        <div id="choices">
+            <button id="pickUp" onclick="pickUp()">Pick Him Up</button>
+            <button id="driveAway" onclick="driveAway()">Drive Away</button>
+        </div>
+
+        <button id="nextBtn" onclick="nextLine()" style="display:none;">
+            Next
+        </button>
+    </div>
+
+    <div id="gameOver"><button id="restart" onclick="restart()">Restart...</button></div>
 
     <div id="timer"></div>
 
-    <div id="stressBar">
-        <div id="stressFill"></div>
-    </div>
-
-    <div>
-        <img id="FailScene" src="Fail Scene.png" alt="Car">
+    <div id="stressContainer">
+        <div id="stressFill">STRESS</div>
     </div>
 </body>
 </html>
