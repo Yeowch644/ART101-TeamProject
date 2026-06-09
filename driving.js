@@ -94,6 +94,9 @@ function nextLine() {
         if (background == 1) {
             $("#driving").css("background-image", "url('images/2drivingBackground3.png')");
         }
+        if (background == 2) {
+            $("#driving").css("background-image", "url('images/2drivingBackground3.png')");
+        }
         background = background + 1
     }
 
@@ -300,6 +303,7 @@ function sceneAssets(){
     scene = scene + 1;
     let driving = "";
     if (scene == 2) {
+        $("body").css("background-color", "rgb(8, 15, 12)")
         $("#driving").css("background-image", "url(images/2drivingBackground.png)");
         driving = driving + '<img src="images/2steeringWheel.png" id="steeringWheel" class="clickableAsset">';
         driving = driving + '<img src="images/2stickShift.png" id="stickShift" class="clickableAsset">';
@@ -422,7 +426,7 @@ function scene3(){
 
         { speaker: "Hitchhiker", text: "HAND OVER THAT WHEEL, I'M DRIVING!"},
         { speaker: "Hitchhiker", text: "'He grabs the wheel*", gameOver: true},
-    ];
+    ]; 
 }
 
 function continueEvents3(event){
