@@ -33,6 +33,9 @@ function restart(){
     else if (scene == 3){
         scene3();
     }
+    else if (scene == 4){
+        scene4();
+    }
     else {
         alert("ERROR IN RESTARTING SCENE");
     }
@@ -82,7 +85,7 @@ function nextLine() {
     if (line.gameOver) {
         gameOver = false
         document.getElementById("nextBtn").style.display = "none";
-        gameEnd();
+        gameEnd("hitchhiker");
     }
 
     if (line.changeBackground) {
@@ -97,6 +100,9 @@ function nextLine() {
         if (background == 2) {
             $("#driving").css("background-image", "url('images/2drivingBackground3.png')");
         }
+        if (background == 3) {
+            $("#driving").css("background-image", "url('images/2drivingBackground3.png')");
+        }
         background = background + 1
     }
 
@@ -105,8 +111,14 @@ function nextLine() {
         if (scene == 1) {
             continueEvents();
         }
-        else if (scene ==2) {
+        else if (scene == 2) {
             continueEvents2();
+        }
+        else if (scene == 3) {
+            continueEvents3();
+        }
+        else if (scene == 4) {
+            continueEvents4();
         }
     }
 
@@ -212,14 +224,17 @@ $(document).on("click", "#steeringWheel", function() {
         else if (scene == 2){
             continueEvents2(this);
         }
-        else if (scene ==3 ) {
+        else if (scene == 3 ) {
             continueEvents3(this);
+        }
+        else if (scene == 4 ) {
+            continueEvents4(this);
         }
         else{
             alert("ERROR WITH CLICKABLE ELEMENT");
         }
     } else {
-        updateStress(5);
+        updateStress(10);
     }
 });
 
@@ -231,14 +246,17 @@ $(document).on("click", "#stickShift", function() {
         else if (scene == 2){
             continueEvents2(this);
         }
-        else if (scene ==3 ) {
+        else if (scene == 3 ) {
             continueEvents3(this);
+        }
+        else if (scene == 4 ) {
+            continueEvents4(this);
         }
         else{
             alert("ERROR WITH CLICKABLE ELEMENT");
         }
     }  else {
-        updateStress(5);
+        updateStress(10);
     }
 });
 
@@ -250,14 +268,17 @@ $(document).on("click", "#leftMirror", function() {
         else if (scene == 2){
             continueEvents2(this);
         }
-        else if (scene ==3 ) {
+        else if (scene == 3 ) {
             continueEvents3(this);
+        }
+        else if (scene == 4 ) {
+            continueEvents4(this);
         }
         else{
             alert("ERROR WITH CLICKABLE ELEMENT");
         }
     }  else {
-        updateStress(5);
+        updateStress(10);
     }
 });
 
@@ -269,14 +290,17 @@ $(document).on("click", "#rightMirror", function() {
         else if (scene == 2){
             continueEvents2(this);
         }
-        else if (scene ==3 ) {
+        else if (scene == 3 ) {
             continueEvents3(this);
+        }
+        else if (scene == 4 ) {
+            continueEvents4(this);
         }
         else{
             alert("ERROR WITH CLICKABLE ELEMENT");
         }
     }  else {
-        updateStress(5);
+        updateStress(10);
     }
 });
 
@@ -288,14 +312,17 @@ $(document).on("click", "#gloveBox", function() {
         else if (scene == 2){
             continueEvents2(this);
         }
-        else if (scene ==3 ) {
+        else if (scene == 3 ) {
             continueEvents3(this);
+        }
+        else if (scene == 4 ) {
+            continueEvents4(this);
         }
         else{
             alert("ERROR WITH CLICKABLE ELEMENT");
         }
     }  else {
-        updateStress(10);
+        updateStress(20);
     }
 });
 
@@ -310,9 +337,13 @@ function sceneAssets(){
         driving = driving + '<img src="images/2leftMirror.png" id="leftMirror" class="clickableAsset">';
         driving = driving + '<img src="images/2rightMirror.png" id="rightMirror" class="clickableAsset">';
         driving = driving + '<img src="images/2gloveBox.png" id="gloveBox" class="clickableAsset">';
+        driving = driving + '<img src="images/brownSplat.png" id="brownSplat">';
         $("#driving").html(driving);
     }
     else if (scene == 3) {
+        $("#driving").css("background-image", "url(images/2drivingBackground.png)");
+    }
+    else if (scene == 4) {
         $("#driving").css("background-image", "url(images/2drivingBackground.png)");
     }
     else {
@@ -335,6 +366,8 @@ function scene2(){
     stress = 0;
     timer = false;
     timeLeft = 120;
+    $("#pickUp").css("display", "none");
+    $("#driveAway").css("display", "none");
     $("#gameOver").css("display", "none");
     $("#prompt").css("display", "block");
     $("#prompt").html("There might be someone behind you! <br>Adjust your right mirror to your blindspot.");
@@ -404,6 +437,8 @@ function scene3(){
     stress = 0;
     timer = false;
     timeLeft = 120;
+    $("#pickUp").css("display", "none");
+    $("#driveAway").css("display", "none");
     $("#gameOver").css("display", "none");
     $("#prompt").css("display", "block");
     $("#prompt").html("CAREFULLY SOMEONE IS FOLLOWING YOU… Adjust your right mirror to your blindspot.");
@@ -412,20 +447,20 @@ function scene3(){
     story = [
         { speaker: "You", text: "Umm not really sure about that. I've got to get home before dinner.", stress: +5 },
 
-        { speaker: "Hitchhiker", text: "Did I hear about some yummy dinner?" },
-        { speaker: "You", text: "I've got some fresh pot of stew ready for me when I get home. Well anyways I- *Stomach rumble sound*", continueEv: true},
+        { speaker: "Hitchhiker", text: "Hmm... What does your diet such as this 'dinner' consist of?" },
+        { speaker: "You", text: "I've got some fresh pot of stew ready for me when I get home. Anyways, I-", continueEv: true},
 
-        { speaker: "Hitchhiker", text: "Stew! I love stew! *The hitchhiker forces himself into your car*", stress: +25, continueEv: true, changeBackground: true},
-        { speaker: "You", text: "Where are you headed?" },
+        { speaker: "Hitchhiker", text: "Stew!? Stew makes for the best meals! *The hitchhiker rips open your car door*", stress: +25, continueEv: true, changeBackground: true},
+        { speaker: "You", text: "What are you?" },
 
-        { speaker: "Hitchhiker", text: "Just a couple blocks down the road." },
-        { speaker: "You", text: "Well, here we are! Have a good night!" },
+        { speaker: "Hitchhiker", text: "Nothing that you'll ever comprehend. Not as I toy with your reality for eternity.", stress: +30},
+        { speaker: "You", text: "What are you talking about?" },
 
-        { speaker: "Hitchhiker", text: "Well actually, I wouldn't mind going home with you.", stress: +20},
-        { speaker: "You", text: "I'm not up for receiving guests at the moment. My place isn't tidy…" },
+        { speaker: "Hitchhiker", text: "Just keep driving...", continueEv: true},
+        { speaker: "You", text: "Plea--" },
 
-        { speaker: "Hitchhiker", text: "HAND OVER THAT WHEEL, I'M DRIVING!"},
-        { speaker: "Hitchhiker", text: "'He grabs the wheel*", gameOver: true},
+        { speaker: "Hitchhiker", text: "HEHEHEEE, I THINK I'LL DRINK UP YOUR BLOOD THIS TIME!"},
+        { speaker: "Hitchhiker", text: "*The monster sinks its fangs into your neck*", gameOver: true},
     ]; 
 }
 
@@ -453,9 +488,74 @@ function continueEvents3(event){
         $("#dialogue-box").css("display", "block");
     }
     if (events == 4) {
-        $("#prompt").html("Your stomach rumbles. When was the last time you ate?");
+        $("#prompt").html("You try kick the car into drive again-");
     }
     if (events == 5) {
-        $("#prompt").html("The hitchiker forces himself into your car with ease. Are you sure you even locked the door?");
+        $("#prompt").html("The hitchiker forces himself into your car with ease. You know you definitely locked it this time.");
+    }
+    if (events == 6) {
+        if (hitchhikerGameOver == 2) {
+            $("#prompt").html("It suddenly dawns on you that if this man is the true cause of your deaths, then so is he the cause of this horror. The only way to escape... Is to stop driving.");
+        }
+        else {
+            $("#prompt").html("You can't understand what he's saying. Maybe things would have been different had you been more dilligent...");
+        }
     }
 }
+// END OF SCENE 3 STUFF
+
+
+// Scene 4 stuff
+function scene4(){
+    events = 0;
+    currentLine = 0;
+    steeringPrompt = true;
+    stickPrompt = false;
+    leftPrompt = false;
+    rightPrompt = false;
+    glovePrompt = false;
+    stressState = true;
+    stress = 0;
+    timer = false;
+    timeLeft = 120;
+    $("#pickUp").css("display", "none");
+    $("#driveAway").css("display", "none");
+    $("#gameOver").css("display", "none");
+    $("#prompt").css("display", "block");
+    $("#prompt").html("There is someone on the side of the road at night. <br> Steer and pull over.");
+    $("#nextBtn").css("display", "inline-block");
+    $("#dialogue").html(`You: "Hey are you okay?"`);
+    story = [
+        { speaker: "Hitchhiker", text: "Yea I'm not from around here and I'm lost. Would you mind giving me a ride to the nearest motel?" },
+        { speaker: "You", text: "Mm sure. hop in!", continueEv: true, stress: +10},
+
+        { speaker: "Hitchhiker", text: "Ooo my stomach hurts. *Farting*", changeBackground: true, continueEv: true},
+        { speaker: "You", text: "Dude... are you okay? *More farting*"},
+
+        { speaker: "Hitchhiker", text: "No... *Even louder farting*" },
+        { speaker: "You", text: "G-Get out!", continueEv: true},
+    ];
+}
+
+function continueEvents4(event){
+    events = events + 1;
+    if (events == 1) {
+        $("#prompt").html("You pull over to talk to the hitchhiker.");
+        steeringPrompt = false;
+        $("#driving").css("background-image", "url('images/2drivingBackground2.png')");
+        $("#dialogue-box").css("display", "block");
+    }
+    if (events == 2) {
+        $("#prompt").html("* THE HITCHHIKER GETS IN THE CAR *");
+    }
+    if (events == 3) {
+        $("#prompt").html("*The hitchhiker is farting violently*");
+    }
+    if (events == 4) {
+        stressState = false;
+        $("#prompt").html("TRUE GAME OVER");
+        $("#nextBtn").css("display", "none");
+        $("#brownSplat").css("display", "block");
+    }
+}
+// END OF SCENE 4 STUFF
